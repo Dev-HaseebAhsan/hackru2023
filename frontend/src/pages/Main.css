@@ -4,11 +4,10 @@
   --bg2: #B83D6E;
   --primary: #7C113C;
   --primary-accent: #70113C;
-  --secondary: #16141F;
-  --secondary-accent: ;
+  --secondary: #434343;
+  --secondary-accent: #5a5959;
   --text-color: #dadce1;
   --speed: 500ms;
-  color: var()
 }
 *{
   margin: 0;
@@ -30,16 +29,9 @@ a{
   text-decoration: none;
 }
 
-body{
-  /* background-color: var(--bg); */
-  background-image: linear-gradient(var(--bg1), var(--bg2));
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
 /* Main Body */
 .body-container{
+  background-image: linear-gradient(var(--bg1), var(--bg2));
   display: flex;
   height: 100vh;
 }

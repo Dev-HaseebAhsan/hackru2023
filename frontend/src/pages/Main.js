@@ -1,9 +1,9 @@
-import './App.css';
-import logo from './img/logo.png';
+import './Main.css';
+import logo from '../img/logo.png';
 
 function App() {
   return (
-    <div className="App">
+    <div className="Main">
       <body className="body-container">
         {/*Contains Title Logo, Site description, Cool img*/}
         <div className='info-container'>
