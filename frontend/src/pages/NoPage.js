@@ -1,4 +1,4 @@
-import React from 'react'
+import './css/NoPage.css'
 
 function NoPage() {
   return (

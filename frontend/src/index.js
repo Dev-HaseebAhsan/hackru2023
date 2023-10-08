@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './pages/Layout';
 import Main from './pages/Main';
+import CreateAccount from './pages/CreateAccount';
 import Profile from './pages/Profile';
+import Creator from './pages/Creator';
 import NoPage from './pages/NoPage';
 
 import reportWebVitals from './reportWebVitals';
@@ -15,8 +17,10 @@ export default function App(){
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Main/>}/>
+          <Route path="create-account" element={<CreateAccount/>}/>
           <Route path="profile" element={<Profile/>}/>
-          <Route path="*" element={<NoPage />} />
+          <Route path="creator" element={<Creator/>}/>
+          <Route path="*" element={<NoPage/>} />
         </Route>
       </Routes>
     </BrowserRouter>

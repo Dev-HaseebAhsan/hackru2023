@@ -1,0 +1,175 @@
+.Creator{
+	background-color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 97vh;
+  font-size: 1rem;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+p:hover{
+  cursor: default;
+}
+
+.score{
+  background-color: var(--secondary);
+  border: 1px solid black;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.score-table{
+  display: grid;
+  grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+  grid-template-rows: 8vh 8vh 8vh 8vh 8vh 8vh 8vh 8vh;
+  margin: 10px 5px 0px 45px;
+  border-width: 1px;
+  border: solid;
+  border: black;
+}
+
+.table-item {
+  border: 1px solid black;
+  padding-top: 2vh;
+  text-align: center;
+}
+
+.stats{
+  display: flex;
+  flex-direction: row;
+  margin: 5px 50px;
+  margin-bottom: 0px;
+  justify-content: center;
+}
+
+.main-info{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.lower{
+  display: flex;
+  flex: .5;
+  padding-bottom: 10px;
+}
+
+.creator-section{
+ background-color: var(--secondary-accent);
+ padding: 15px;
+ border-radius: 20px;
+  text-align: center;
+  margin: 5px;
+}
+
+.creator-section .creator-char-art{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.creator-section .name{
+  background-color: var(--secondary);
+  border: 1px solid black;
+  text-align: center;
+  padding: 7px;
+  margin: 7px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.creator-section .name::placeholder{
+ opacity: 50%;
+}
+
+.creator-section .input{
+  background-color: var(--secondary);
+  border: 1px solid black;
+  text-align: center;
+  padding: 7px 50px;
+  margin: 7px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.creator-section .class-select{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.small-button{
+  border-radius: 50%;
+  background-color: var(--secondary);
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+  width: 30px;
+  height: 30px;
+  color: white;
+  vertical-align: center;
+  margin: 5px;
+}
+.small-button:hover{
+  border-color: white;
+}
+
+.dropdown-display{
+  text-align: left;
+}
+
+.lower-grid{
+  display: grid;
+  grid-template-columns: 24vw 24vw 24vw 24vw;
+}
+
+.class-item{
+  display: flex;
+  flex-direction: row;
+  background-color: var(--secondary-accent);
+  text-align: center;
+  padding: 7px 0px;
+  margin: 7px;
+  border-radius: 20px;
+  font-weight: bold;
+  align-items: center;
+}
+
+.added-class-name{
+  margin: 0px 30px;
+  text-align: center;
+  margin-top: 4px;
+  border-width: 2px;
+  border-radius: 10px;
+  width: 60px;
+  height: 30px;
+}
+
+.level{
+  text-align: center;
+  border: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: black;
+  width: 30px;
+  height: 30px;
+  background-color: var(--secondary);
+}
+
+.lvl-adjust{
+  padding: 10px;
+  display:flex;
+  flex-direction: row;
+  text-align: center;
+  font-weight: lighter;
+  margin-left: 40px
+}
+
+.upper-char-info{
+  margin-bottom: 0px;
+}
+
