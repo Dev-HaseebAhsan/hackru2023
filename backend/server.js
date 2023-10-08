@@ -6,6 +6,7 @@ const port = 3009;
 //initialize routers that contain the routes from other js files
 var accountRoutes = require("./routes/account.js");
 var characterRoutes = require("./routes/characters.js");
+const dictionary = require("./definitions.js");
 
 //initialize mysql2 module connection
 const mysql = require("mysql2");
@@ -18,6 +19,16 @@ var connection = mysql.createConnection(
         insecureauth:true
     }
 );
+
+// app.get('/test/', (req, res) => {
+//     connection.query('insert into account (name, password, email) values (\'one\', \'two\', email@email))', 
+//         (error, results, fields) => {
+//             console.log(results);
+//             res.send(results);
+//         }
+//     )
+//     }
+// );
 
 //connect the express server to the routers for the other endpoints
 app.use("/account", accountRoutes);
