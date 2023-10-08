@@ -1,5 +1,6 @@
 import './css/CreateAccount.css';
 import * as Unicons from '@iconscout/react-unicons';
+import {Outlet, Link } from "react-router-dom"
 
 function CreateAccount() {
   return (
@@ -30,7 +31,11 @@ function CreateAccount() {
               <Unicons.UilLock class='icon' size="20" color="white"/>
             </div>
 
-            <button class='login-button' type="submit">Create Account</button>
+            <button class='login-button' type="submit">
+              <Link to="/">
+                <span style={{color:'black'}}>Create Account</span>
+              </Link>
+            </button>
 
           </div>
         </div>

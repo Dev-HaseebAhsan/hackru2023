@@ -2,10 +2,12 @@ import './css/Main.css';
 import logo from '../img/logo.png';
 import * as Unicons from '@iconscout/react-unicons';
 import {Outlet, Link } from "react-router-dom";
+import FetchAPI from '../API/FetchAPI';
 
 function Main() {
   return (
     <div class="Main">
+      <FetchAPI /> 
       <body class="body">
         {/*Contains Title Logo, Site description, Cool img*/}
         <div class='info-container'>

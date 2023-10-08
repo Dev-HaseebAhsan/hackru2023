@@ -2,36 +2,50 @@ import React from 'react';
 import './css/Creator.css'
 import defaultArt from '../img/joe-average.png';
 import zenith from '../img/zenith-art.png';
+import logo from '../img/logo.png';
 import * as Unicons from '@iconscout/react-unicons';
+import {Outlet, Link } from "react-router-dom"
 
 function Creator() {
+  var fighterDie = 0;
+  var rangerDie = 0;
+  var wizardDie = 0;
+  var maxHealth = 0
 
-
-  var fighterDie;
-  var rangerDie;
-  var wizardDie;
   function heal(){
-    
+    if(fighterDie > 0){
+      document.getElementById('healthPoints').innerHTML = Number( document.getElementById('healthPoints').innerHTML) + Math.round((Math.random()*9+1)) + Number(document.getElementById('ConMod').innerHTML);
+      fighterDie--;
+    }else if(rangerDie > 0){
+      document.getElementById('healthPoints').innerHTML = Number( document.getElementById('healthPoints').innerHTML) + Math.round((Math.random()*9+1)) + Number(document.getElementById('ConMod').innerHTML);
+      rangerDie--;
+    }else if(wizard > 0){
+      document.getElementById('healthPoints').innerHTML =Number( document.getElementById('healthPoints').innerHTML) +  Math.round((Math.random()*3+1)) + Number(document.getElementById('ConMod').innerHTML);
+      wizardDie--;
+    } else{
+      document.getElementById('healthPoints').innerHTML = maxHealth;
+    }
   }
   
   var fighter = 0;
   var ranger = 0;
   var wizard = 0;
-  var hitDie = 0;
   function adjustLevel(dif, className) {
-    hitDie+=dif;
-    document.getElementById('hit-die').innerHTML = hitDie;
-    console.log(dif, className);
     if(className === 'fighter'){
       fighter += dif;
+      fighterDie = fighter;
       document.getElementById('lvl-fighter').innerHTML = fighter;
     }else if(className === 'ranger'){
       ranger += dif;
+      rangerDie = ranger;
+
       document.getElementById('lvl-ranger').innerHTML = ranger;
     }else if(className === 'wizard'){
       wizard += dif;
+      wizardDie = wizard;
       document.getElementById('lvl-wizard').innerHTML = wizard;
     }
+    maxHealth = fighterDie*10 + rangerDie*10 + wizardDie*4;
   }
 
   function adjustScore(stat){
@@ -94,6 +108,25 @@ function Creator() {
 
   return (
     <div class="Creator">
+      <div class='navbar'>
+        <div class='navbar-container'>
+          <img src={logo}/>
+          <ul>
+            <li>
+              <Link to="/profile">
+                <Unicons.UilUser class='icon' size="1.5rem" color="white"/>
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                <Unicons.UilSignout class='icon' size="1.5rem" color="white"/>
+                Logout
+              </Link>
+            </li>            
+          </ul>
+        </div>
+      </div>
       <div class="upper-char-info">
         <div class="stats">
           <div class="main-info">
@@ -212,7 +245,7 @@ function Creator() {
               <div></div>
               <div class="hp-icon">
                 <Unicons.UilHeart class='icon' size="40" color="white"/>
-                <div class="hp-num">18</div>
+                <div class="hp-num" id="healthPoints">18</div>
               </div>
               <div class="bar hp">
                 20%

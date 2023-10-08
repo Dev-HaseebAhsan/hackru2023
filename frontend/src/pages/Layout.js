@@ -11,6 +11,9 @@ const Layout = () => {
               <Link to="/">Main</Link>
             </li>
             <li style={{display:"inline", marginRight:"20px"}}>
+              <Link to="./API/fetch">FetchAPI</Link>
+            </li>
+            <li style={{display:"inline", marginRight:"20px"}}>
               <Link to="/create-account">CreateAccount</Link>
             </li>
             <li style={{display:"inline", marginRight:"20px"}}>

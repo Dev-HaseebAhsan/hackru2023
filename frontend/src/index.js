@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './pages/Layout';
 import Main from './pages/Main';
+import FetchAPI from './API/FetchAPI';
 import CreateAccount from './pages/CreateAccount';
 import Profile from './pages/Profile';
 import Creator from './pages/Creator';
@@ -17,6 +18,7 @@ export default function App(){
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Main/>}/>
+          <Route path="fetch-api" element={<FetchAPI/>}/>
           <Route path="create-account" element={<CreateAccount/>}/>
           <Route path="profile" element={<Profile/>}/>
           <Route path="creator" element={<Creator/>}/>

@@ -11,7 +11,13 @@
   --speed: 500ms;
 }
 
+button:hover{
+  cursor: pointer;
+}
 
+p:hover{
+  cursor: default;
+}
 
 .Creator{
 	background-color: var(--secondary);
@@ -22,12 +28,39 @@
   font-size: 1rem;
 }
 
-button:hover{
-  cursor: pointer;
+/* Navigation Bar */
+.navbar{
+	display: flex;
+	align-items: center;
+	background-color: var(--bg1);
+  box-shadow: 0 0 25px black;
+	width: 100%;
+	height: 80px;
 }
-
-p:hover{
-  cursor: default;
+.navbar .navbar-container{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin: 0 30px;
+}
+.navbar .navbar-container img{
+	width: 200px;
+}
+.navbar .navbar-container ul{
+	width: 100%;
+	text-align: right;
+}
+.navbar .navbar-container li{
+	display: block;
+	text-align: center;
+	font-size: 1.25rem;
+	font-weight: 700;
+	display: inline-block;
+	list-style: none;
+	margin: 5px 20px 5px 30px;
+}
+.navbar .navbar-container .icon{
+	margin: 3px 5px -3px 0;
 }
 
 .score{
