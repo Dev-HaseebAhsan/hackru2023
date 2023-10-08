@@ -1,6 +1,7 @@
 import './css/Main.css';
 import logo from '../img/logo.png';
 import * as Unicons from '@iconscout/react-unicons';
+import {Outlet, Link } from "react-router-dom";
 
 function Main() {
   return (
@@ -24,7 +25,7 @@ function Main() {
           <div class='login-wrapper'>
             <div class='login-form'>
               {/* Login Header */}
-              <h1>Login</h1>
+              <h1>Sign In</h1>
 
               {/* Email Input */}
               <div class='input-container'>
@@ -49,12 +50,14 @@ function Main() {
                 <a href="#">Forgot Password?</a>
               </div>
               
-              <button class='login-button' type="submit">Login</button>
+              <button class='login-button' type="submit">Next</button>
 
               {/* Register */}
               <div class='move-to-sides'>
                 <p>Don't have an account?</p>
-                <a href='#' class='register-link'>Register</a>
+                <Link to='create-account'>
+                  Register
+                </Link>
               </div>
 
 

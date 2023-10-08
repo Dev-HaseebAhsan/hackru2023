@@ -1,4 +1,5 @@
 import './css/CreateAccount.css';
+import * as Unicons from '@iconscout/react-unicons';
 
 function CreateAccount() {
   return (
@@ -13,20 +14,20 @@ function CreateAccount() {
 
             {/* Email Input */}
             <div class='input-box'>
-              <input type='email'/>
-              <label>Email</label>
+              <input type='email' placeholder='Email'/>
+              <Unicons.UilEnvelope class='icon' size="20" color="white"/>
             </div>
 
             {/* Password Input */}
             <div class='input-box'>
-              <input type='password'/>
-              <label>Password</label>
+              <input type='password' placeholder='Password'/>
+              <Unicons.UilLock class='icon' size="20" color="white"/>
             </div>
 
             {/* Password Confirm */}
             <div class='input-box'>
-              <input type='password'/>
-              <label>Confirm Password</label>
+              <input type='password' placeholder='Confirm Password'/>
+              <Unicons.UilLock class='icon' size="20" color="white"/>
             </div>
 
             <button class='login-button' type="submit">Create Account</button>

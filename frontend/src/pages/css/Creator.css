@@ -1,9 +1,24 @@
+/* General CSS */
+:root{
+  --bg1: #101018;
+  --bg2: #B83D6E;
+  --primary: #7C113C;
+  --primary-accent1: #841f4d;
+  --primary-accent2: #9b2a5d;
+  --secondary: #434343;
+  --secondary-accent: #5a5959;
+  --text-color: #dadce1;
+  --speed: 500ms;
+}
+
+
+
 .Creator{
 	background-color: var(--secondary);
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 97vh;
+  height: 100%;
   font-size: 1rem;
 }
 
@@ -23,13 +38,17 @@ p:hover{
 }
 
 .score-table{
+  background-color: var(--secondary-accent);
   display: grid;
   grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
-  grid-template-rows: 8vh 8vh 8vh 8vh 8vh 8vh 8vh 8vh;
-  margin: 10px 5px 0px 45px;
+  grid-template-rows: 8vh 8vh 8vh 8vh 8vh 8vh 8vh;
+  margin: 20px 5px 20px 45px;
+  padding: 15px;
   border-width: 1px;
+  border-radius: 10px;
   border: solid;
   border: black;
+  box-shadow: 0 0 20px black;
 }
 
 .table-item {
@@ -42,7 +61,6 @@ p:hover{
   display: flex;
   flex-direction: row;
   margin: 5px 50px;
-  margin-bottom: 0px;
   justify-content: center;
 }
 
@@ -50,6 +68,7 @@ p:hover{
   display: flex;
   flex: 1;
   flex-direction: column;
+  margin: 50px 0 0 0;
 }
 
 .lower{
@@ -59,16 +78,23 @@ p:hover{
 }
 
 .creator-section{
- background-color: var(--secondary-accent);
- padding: 15px;
- border-radius: 20px;
+  background-color: var(--secondary-accent);
+  padding: 20px 10px 20px 10px;
+  border-radius: 20px;
   text-align: center;
-  margin: 5px;
+  margin: 10px 0 10px 0;
+  box-shadow: 0 0 20px black;
 }
 
-.creator-section .creator-char-art{
+.creator-char-art{
   height: 150px;
   width: 150px;
+  border-radius: 50%;
+}
+
+.race-art{
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
 }
 
@@ -82,9 +108,6 @@ p:hover{
   font-weight: bold;
 }
 
-.creator-section .name::placeholder{
- opacity: 50%;
-}
 
 .creator-section .input{
   background-color: var(--secondary);
@@ -124,7 +147,22 @@ p:hover{
 
 .lower-grid{
   display: grid;
-  grid-template-columns: 24vw 24vw 24vw 24vw;
+  grid-template-columns: 24vw 24vw 24vw;
+  gap: 20px;
+  justify-content: center;
+}
+
+.lower-section{
+  background-color: var(--secondary-accent);
+  border-radius: 20px;
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+  box-shadow: 0 0 20px black;
+}
+
+.class-template{
+  display: inline-block;
 }
 
 .class-item{
@@ -132,14 +170,32 @@ p:hover{
   flex-direction: row;
   background-color: var(--secondary-accent);
   text-align: center;
+  padding: 2px 0px;
+  margin: 2px;
+  border-radius: 20px;
+  font-weight: bold;
+  align-items: center;
+  height: 125px;
+  white-space: nowrap;
+}
+
+.race-item{
+  display: flex;
+  flex-direction: row;
+  background-color: var(--secondary-accent);
+  justify-content: right;
+  padding-top: 20px;
   padding: 7px 0px;
   margin: 7px;
   border-radius: 20px;
   font-weight: bold;
-  align-items: center;
+  align-items: center; 
+  height: 125px;
+  white-space: nowrap;
+  padding-right: 50px;
 }
 
-.added-class-name{
+.added-name{
   margin: 0px 30px;
   text-align: center;
   margin-top: 4px;
@@ -147,17 +203,21 @@ p:hover{
   border-radius: 10px;
   width: 60px;
   height: 30px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
 }
 
 .level{
   text-align: center;
   border: solid;
   border-width: 1px;
-  border-radius: 10px;
+  border-radius: 15px;
   border-color: black;
   width: 30px;
   height: 30px;
   background-color: var(--secondary);
+  padding-top: 2px;
 }
 
 .lvl-adjust{
@@ -173,3 +233,117 @@ p:hover{
   margin-bottom: 0px;
 }
 
+.character-status{
+  display: flex;
+  flex-direction: row;
+  background-color: var(--secondary-accent);
+  justify-content: center;
+  padding: 7px 0px;
+  margin: 7px;
+  border-radius: 20px;
+  font-weight: bold;
+  align-items: center;
+}
+
+.status-item{
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  padding: 10px;
+  align-items: center;
+  height: 125px;
+
+}
+
+.hp-icon{
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  color: black;
+  position: relative;
+}
+
+.status-item .hp-num{
+  top: 6px;
+  left: 10px;
+  position: absolute;
+}
+
+.bar{
+  /*bar with % */
+  margin: 5px;
+  height: 25px;
+  width: 200px;
+  margin: 0%;
+  padding: 0%;
+  position: relative;
+  border-width: 1px;
+  border: solid;
+  color: black;
+}
+
+.mana{
+  background-color: rgb(191, 173, 230)
+}
+
+.hp{
+  background-color: rgb(201, 253, 188);
+}
+
+.status-item .hp-bar{
+  background-color: rgb(50, 168, 50);
+  /*bar with % */
+  margin: 5px;
+  height: 20px;
+  position: absolute;
+  top: -5px; 
+  left: -5px;
+  width: 20%;
+  color: black;
+  opacity: 50%;
+}
+
+.status-item .hp-die{
+  /*use die bg*/
+  margin: 5px;
+  position: relative;
+} 
+
+.status-item .hp-die .heal{
+  position: absolute;
+  padding: 20px;
+  left: 0px;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.status-item .mana-num{
+  /* Amount of Spell Slots */
+  margin: 4px 6px 0 0;
+  font-weight: 500;
+
+}
+
+.status-item .mana-bar{
+  background-color: rgb(0, 0, 255);
+  /*bar with % */
+  margin: 5px;
+  height: 20px;
+  position: absolute;
+  top: -5px; 
+  left: -5px;
+  width: 80%;
+  color: black;
+  opacity: 50%;
+}
+
+.status-item .ac{
+  /* based on Armor */
+  margin: 5px;
+  position: relative;
+}
+
+.ac-num{
+  position: absolute;
+  top: 6px;
+  left: 10px;
+}

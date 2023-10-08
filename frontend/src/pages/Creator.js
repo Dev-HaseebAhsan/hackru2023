@@ -1,13 +1,37 @@
 import React from 'react';
 import './css/Creator.css'
 import defaultArt from '../img/joe-average.png';
+import zenith from '../img/zenith-art.png';
+import * as Unicons from '@iconscout/react-unicons';
 
 function Creator() {
+
+
+  var fighterDie;
+  var rangerDie;
+  var wizardDie;
+  function heal(){
+    
+  }
   
-  var level = 1;
-  function adjustLevel(dif) {
-    level += dif;
-    document.getElementById('lvl').innerHTML = level;
+  var fighter = 0;
+  var ranger = 0;
+  var wizard = 0;
+  var hitDie = 0;
+  function adjustLevel(dif, className) {
+    hitDie+=dif;
+    document.getElementById('hit-die').innerHTML = hitDie;
+    console.log(dif, className);
+    if(className === 'fighter'){
+      fighter += dif;
+      document.getElementById('lvl-fighter').innerHTML = fighter;
+    }else if(className === 'ranger'){
+      ranger += dif;
+      document.getElementById('lvl-ranger').innerHTML = ranger;
+    }else if(className === 'wizard'){
+      wizard += dif;
+      document.getElementById('lvl-wizard').innerHTML = wizard;
+    }
   }
 
   function adjustScore(stat){
@@ -20,14 +44,11 @@ function Creator() {
   
   function addClass(){
     var className = document.getElementById('class').value;
-    document.getElementById('className').innerHTML = className;
-    document.getElementById('lower').innerHTML += document.getElementById('classes-template').innerHTML;
-    document.getElementById('classes-template').innerHTML = '';
+    document.getElementById('className').innerHTML = className + ':';
   }
 
   function raceBonuses(){
     var race = document.getElementById('race').value;
-    console.log(race);
     if(race === 'Human'){
       document.getElementById('Str' + 'Race').innerHTML = 1;
       document.getElementById('Dex' + 'Race').innerHTML = 1;
@@ -35,6 +56,7 @@ function Creator() {
       document.getElementById('Int' + 'Race').innerHTML = 1;
       document.getElementById('Wis' + 'Race').innerHTML = 1;
       document.getElementById('Cha' + 'Race').innerHTML = 1;
+      document.getElementById('raceArt').src = {zenith};
     }
     if(race === 'Dwarf'){
       document.getElementById('Str' + 'Race').innerHTML = 0;
@@ -66,7 +88,7 @@ function Creator() {
     document.getElementById('WisMod').innerHTML = Math.floor((document.getElementById('WisTotal').textContent-10)/2);
     document.getElementById('ChaMod').innerHTML = Math.floor((document.getElementById('ChaTotal').textContent-10)/2);
 
-    document.getElementById('className').innerHTML = race;
+    document.getElementById('raceName').innerHTML = race;
 
   }
 
@@ -81,20 +103,20 @@ function Creator() {
               </div>
             <div class="creator-section">
               <select name="race" id="race" class="input" onChange={() => raceBonuses()}>
-                <option class="dropdown-display" defaultValue="Select">Choose Race</option>
+                <option class="dropdown-display" defaultValue="Select">Select Race</option>
                 <option class="dropdown-display" value="Human">Human</option>
                 <option class="dropdown-display" value="Elf">Elf</option>
                 <option class="dropdown-display" value="Dwarf">Dwarf</option>
               </select>
               </div>
-            <div class="creator-section">
-              <select name="class" id="class" class="input class-input">
+            {/* <div class="creator-section">
+              <select name="class" id="class" class="input class-input" onChange={() => addClass()}>
                 <option class="dropdown-display" defaultValue="Select">Choose Class</option>
                 <option class="dropdown-display" value="Fighter">Fighter</option>
                 <option class="dropdown-display" value="Ranger">Ranger</option>
                 <option class="dropdown-display" value="Wizard">Wizard</option>
               </select>
-            </div>
+            </div> */}
         </div>
           <div class="score-table"> 
             <div class="table-item">Ability</div>
@@ -145,20 +167,73 @@ function Creator() {
         </div>
       </div>
       <div class="lower-grid" id="lower-grid"> 
-          <div class="creator-section">
-              
+          <div class="lower-section">
+              <div class="race-item">
+                <img class="race-art" id="raceArt" src={defaultArt}/>
+                <div class="added-name" id="raceName">Your Race</div>
+              </div>
           </div>
-          <div class="creator-section class-template">
+          <div class="lower-section class-template">
           <div className="class-item">
-             <div className="added-class-name" id="className">  </div>
+          <div className="added-name" id="className">Fighter:</div>
              <div className="level">
-               <a id="lvl">1</a>
+               <a id="lvl-fighter">0</a>
              </div>
              <div className="lvl-adjust">
-             <button className="small-button" onClick={() => adjustLevel(1)}>+</button>
-               <button className="small-button" onClick={() => adjustLevel(-1)}>-</button>
+              <button className="small-button" onClick={() => adjustLevel(1,'fighter')}>+</button>
+               <button className="small-button" onClick={() => adjustLevel(-1,'fighter')}>-</button>
              </div>
            </div>
+           <div className="class-item">
+          <div className="added-name" id="className">Ranger:</div>
+             <div className="level">
+               <a id="lvl-ranger">0</a>
+             </div>
+             <div className="lvl-adjust">
+              <button className="small-button" onClick={() => adjustLevel(1,'ranger')}>+</button>
+               <button className="small-button" onClick={() => adjustLevel(-1,'ranger')}>-</button>
+             </div>
+           </div>
+           <div className="class-item">
+          <div className="added-name" id="className">Wizard:</div>
+             <div className="level">
+               <a id="lvl-wizard">0</a>
+             </div>
+             <div className="lvl-adjust">
+              <button className="small-button" onClick={() => adjustLevel(1,'wizard')}>+</button>
+               <button className="small-button" onClick={() => adjustLevel(-1,'wizard')}>-</button>
+             </div>
+           </div>
+          </div>
+          <div class="lower-section character-status">
+            <div className="status-item"> 
+              <div></div>
+              <div class="heading"> Status </div>
+              <div></div>
+              <div class="hp-icon">
+                <Unicons.UilHeart class='icon' size="40" color="white"/>
+                <div class="hp-num">18</div>
+              </div>
+              <div class="bar hp">
+                20%
+                <div class="hp-bar"></div>
+              </div>
+              <div class="hp-die" id="hit-die">
+                <Unicons.UilBandAid class='icon' size="40" color="white"/>
+                <button class="heal" onClick={() => heal()}></button>
+              </div>
+              <div class="mana-num">
+                <Unicons.UilTear class='icon' size="40" color="white"/>
+              </div>
+              <div class="bar mana">
+                80%
+                <div class="mana-bar"></div>
+              </div>              
+              <div class="ac">
+                <Unicons.UilShield class='icon' size="40" color="white"/>
+                <div class="ac-num">12</div>
+              </div>
+            </div>
           </div>
       </div>
     </div>
